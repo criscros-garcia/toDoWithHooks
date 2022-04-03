@@ -8,7 +8,7 @@ function TodoForm({addTodo}){
 
     
     return(
-        <Paper>
+        <Paper style={{margin: "1rem 0", padding: "0 1rem" }}>
             <form
                 onSubmit={e => {e.preventDefault();
                 addTodo(value);
@@ -19,6 +19,7 @@ function TodoForm({addTodo}){
                 label="Write your Task here"
                 value={value}
                 onChange={handleChange}
+                margin='normal'
                 fullWidth
                 />
             </form>
