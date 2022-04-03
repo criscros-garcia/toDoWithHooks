@@ -1,5 +1,6 @@
 import {React, useState} from "react";
 import TodoList from "./TodoList";
+import TodoForm from "./TodoForm";
 import { Typography, 
          Paper, 
          AppBar,
@@ -11,9 +12,12 @@ function TodoApp(){
     const initialTodos = [
         {id:1, task:"Walk the dog", completed: false},  
         {id:2, task:"Walk the cat", completed: true},  
-        {id:1, task:"Walk me",      completed: false}  
+        {id:3, task:"Walk me",      completed: false}  
     ];
     const[todos, setTodos] = useState(initialTodos);
+    const addTodo = newTodoText => {
+        setTodos([...todos, {id:4, task:newTodoText, completed:true}])
+    }
     return(
         <Paper style={{
                 padding: 0,
@@ -31,10 +35,9 @@ function TodoApp(){
             </AppBar>
             <Grid container justify="center" style={{marginTop: "1rem"}}>
                 <Grid item xs={11} md={8} lg={4}>
-                    <h1>I am a form</h1>
-                    <h1>Todo Lists</h1>
                 </Grid>
             </Grid>
+            <TodoForm addTodo={addTodo}/ >
             <TodoList todos={todos}/>
         </Paper>
             
